@@ -1,0 +1,25 @@
+playstation3-miner-gamecredits
+===============
+
+![Gamecredits](http://i.imgur.com/fJrOs5U.png)
+
+This is a multi-threaded Cell BE optimized miner for GameCredits,
+fork of Jeff Garzik's reference cpuminer.
+
+Miner threads are first allocated to the available SPU cores (typically 6).
+The remaining threads are allocated to PPU. There will be usually 8 threads
+total on PS3: 6 SPU threads and 2 PPU threads.
+
+License: GPLv2.  See COPYING for details.
+
+Dependencies:
+	libcurl			http://curl.haxx.se/libcurl/
+	jansson			http://www.digip.org/jansson/
+		(jansson is included in-tree)
+
+Basic *nix build instructions:
+	./autogen.sh	# only needed if building from git repo
+	CFLAGS="-O3 -mcpu=cell -fstrict-aliasing" ./configure
+	make
+
+Usage instructions:  Run "minerd --help" to see options.
